@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "ESN Spotter pour LinkedIn",
+  "version": "1.0",
+  "homepage_url": "https://github.com/YoannMourot/esn-spotter-for-linkedin",
+  "description": "Met en évidence les ESN française sur LinkedIn.",
+  "icons": {
+    "48": "icons/esn-spotter-for-linkedin-48.png",
+    "96": "icons/esn-spotter-for-linkedin-96.png"
+  },
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "esn-spotter-for-linkedin@extensions.org",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.linkedin.com/*"],
+      "js": ["esn-spotter-for-linkedin.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["resources/esn-dictionary.json"],
+      "matches": ["*://*.linkedin.com/*"]
+    }
+  ]
+}
